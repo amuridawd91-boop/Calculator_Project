@@ -10,3 +10,30 @@ body {
   padding: 20px;
   border: 3px solid rgb(69, 8, 239);
   border-radius: 20px;
+}
+#display {
+  height: 80px;
+  margin-bottom: 20px;
+  padding: 15px;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  border: 1px solid rgb(18, 14, 215);
+  font-size: 2rem;
+}
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+button {
+  height: 60px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  border: 1px solid rgb(5, 61, 192);
+}
+.zero {
+  grid-column: span 2;
+}
