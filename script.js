@@ -86,15 +86,18 @@ operatorButtons.forEach((button) => {
         }
 
     equalsButton.addEventListener("click", () =>{
-            const result = operate(
+        let result = operate(
                 operator, 
                 Number(firstNumber),
                 Number(secondNumber));
-            display.textContent = result
-            firstNumber = result;
-            secondNumber= "";
-            operator = "";  
-            resultDisplayed = true
+            if (typeof result === "number"){
+                result = Math.round(result * 1000) / 1000;
+            }
+        display.textContent = result
+        firstNumber = result;
+        secondNumber= "";
+        operator = "";  
+        resultDisplayed = true
         })
 
     clearButton.addEventListener("click", () =>{
