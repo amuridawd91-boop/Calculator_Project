@@ -1,0 +1,12 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.calculator {
+  width: 350px;
+  padding: 20px;
+  border: 3px solid rgb(69, 8, 239);
+  border-radius: 20px;
