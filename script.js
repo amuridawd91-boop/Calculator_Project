@@ -13,7 +13,7 @@ operatorButtons.forEach((button) => {
             if (firstNumber !== "" &&
                 secondNumber !== "" &&
                 operator !== ""){
-                    const result = operate(
+                const result = operate(
                 operator, 
                 Number(firstNumber),
                 Number(secondNumber));
@@ -30,10 +30,10 @@ operatorButtons.forEach((button) => {
 
  numberButtons.forEach((button) => {
         button.addEventListener("click", () =>{
-            if (resultDisplayed){
+            if (resultDisplayed && operator === ""){
                 firstNumber = "";
                 secondNumber = "";
-                operator = "";
+                
                 resultDisplayed = false;
             }
             if (operator === ""){
@@ -85,7 +85,7 @@ operatorButtons.forEach((button) => {
             return a / b;
         }
 
-          equalsButton.addEventListener("click", () =>{
+    equalsButton.addEventListener("click", () =>{
             const result = operate(
                 operator, 
                 Number(firstNumber),
@@ -96,3 +96,11 @@ operatorButtons.forEach((button) => {
             operator = "";  
             resultDisplayed = true
         })
+
+    clearButton.addEventListener("click", () =>{
+        firstNumber = "";
+        secondNumber = "";
+        operator = "";
+        resultDisplayed = false;
+        display.textContent = "0"
+    })
