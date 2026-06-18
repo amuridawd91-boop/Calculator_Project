@@ -2,6 +2,12 @@ const display = document.querySelector("#display");
 const numberButtons = document.querySelectorAll(".number");
 const operatorButtons = document.querySelectorAll(".operator");
 
+operatorButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+            operator = button.textContent;
+        })
+    });
+    
 
 
  numberButtons.forEach((button) => {
