@@ -11,6 +11,10 @@ let operator = "";
 let resultDisplayed = false;
 
 
+function updateDisplay(value){
+    display.textContent = value;
+}
+
 operatorButtons.forEach((button) => {
         button.addEventListener("click", () => {
             if (firstNumber !== "" &&
@@ -20,7 +24,7 @@ operatorButtons.forEach((button) => {
                 operator, 
                 Number(firstNumber),
                 Number(secondNumber));
-                display.textContent = result;
+                updateDisplay(result);
 
                 firstNumber = result.toString();
                 secondNumber = "";
@@ -41,10 +45,10 @@ numberButtons.forEach((button) => {
             }
             if (operator === ""){
                 firstNumber += button.textContent;
-                display.textContent = firstNumber;
+                updateDisplay(firstNumber);
             } else {
                 secondNumber += button.textContent;
-                display.textContent = secondNumber;    
+                updateDisplay(secondNumber);    
             }
           
         })
@@ -95,8 +99,8 @@ numberButtons.forEach((button) => {
         if (typeof result === "number"){
                 result = Math.round(result * 1000) / 1000;
             }
-        display.textContent = result
-        firstNumber = result;
+        updateDisplay(result);
+        firstNumber = result.toString();
         secondNumber= "";
         operator = "";  
         resultDisplayed = true
@@ -107,7 +111,7 @@ numberButtons.forEach((button) => {
         secondNumber = "";
         operator = "";
         resultDisplayed = false;
-        display.textContent = "0"
+        updateDisplay("0");
     })
 
     decimalButton.addEventListener("click", () =>{
@@ -118,7 +122,7 @@ numberButtons.forEach((button) => {
             } else if (!firstNumber.includes(".")){
                 firstNumber += ".";
             }
-                display.textContent = firstNumber;
+                updateDisplay(firstNumber);
 
         } else {
             if (secondNumber === ""){
@@ -126,21 +130,21 @@ numberButtons.forEach((button) => {
             }  else if (!secondNumber.includes(".")){
                 secondNumber += ".";
             }
-            display.textContent = secondNumber;
+            updateDisplay(secondNumber);
         }
     })
 
  deleteButton.addEventListener("click", () =>{
         if (secondNumber !== ""){
             secondNumber = secondNumber.slice(0, -1);
-            display.textContent = secondNumber || "0";
+            updateDisplay(secondNumber || "0");
 
         } else if (operator !== ""){
             operator = "";
         
         } else {
             firstNumber = firstNumber.slice(0, -1);
-            display.textContent = firstNumber || "0";
+            updateDisplay(firstNumber || "0");
         }
  })
 
